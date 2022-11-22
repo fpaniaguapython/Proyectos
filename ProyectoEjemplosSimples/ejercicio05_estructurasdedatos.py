@@ -1,3 +1,14 @@
+"""
+  _      _____  _____ _______        _____ 
+ | |    |_   _|/ ____|__   __|/\    / ____|
+ | |      | | | (___    | |  /  \  | (___  
+ | |      | |  \___ \   | | / /\ \  \___ \ 
+ | |____ _| |_ ____) |  | |/ ____ \ ____) |
+ |______|_____|_____/   |_/_/    \_\_____/ 
+
+"""
+
+
 
 lista = ["Lunes","Martes","Miércoles","Juebes","Viernes","Sábado","Domingo"] #Declaración
 
@@ -193,4 +204,130 @@ def isSaludable(producto):
     return producto not in elementos_insalubles
 
 cesta_saludable = [producto for producto in cesta if isSaludable(producto)]
-print(cesta_saludable)
+print("CESTA DESDE COMPRENSIÓN DE LISTAS:", cesta_saludable)
+
+#Alternativa 'tradicional'
+cesta_saludable=[]
+for producto in cesta:
+    if isSaludable(producto):
+        cesta_saludable.append(producto)
+print("CESTA DESDE MÉTODO TRADICIONAL:" , cesta_saludable)
+
+#Comprensión con listas con if y con valor por defecto
+cesta_saludable = [producto if isSaludable(producto) else "PROHIBIDO" for producto in cesta]
+print("CESTA NORMAL:",cesta)
+print("CESTA SALUDABLE:", cesta_saludable)
+
+"""
+  _______ _    _ _____  _                _____ 
+ |__   __| |  | |  __ \| |        /\    / ____|
+    | |  | |  | | |__) | |       /  \  | (___  
+    | |  | |  | |  ___/| |      / /\ \  \___ \ 
+    | |  | |__| | |    | |____ / ____ \ ____) |
+    |_|   \____/|_|    |______/_/    \_\_____/ 
+"""
+
+tupla = ()#Tupla vacía
+print("TUPLA:", tupla, type(tupla))
+tupla = (5)#Declaración e inicialización ERRÓNEO
+print("TUPLA:" , tupla, type(tupla))
+tupla = (5,) #Declaración e inicialización CORRECTO
+print("TUPLA:" , tupla, type(tupla))
+tupla = (5,"Python",cesta)#Declaración e inicialización
+print(tupla[0])#Acceso por posición
+#tupla[0]=8#Error
+for item in tupla:
+    print(item)
+
+tcesta = tuple(cesta) #Conversión de lista en tupla
+lcesta = list(tcesta) #Conversión de tupla a lista
+print("RESULTADO DE LA CONVERSIÓN:", tcesta)    
+
+#Admite slicing
+print(tupla[0:1])
+
+#Operadores + y * (copia varias veces la tupla)
+tupla2 = (1,5)
+tupla3 = tupla + tupla2
+print("Tupla 3:", tupla3)
+
+#Aplicaciones funciones built-in
+tupla = (3,10,-5,8,105,1)
+print(len(tupla))
+print(min(tupla))
+print(max(tupla))
+print(3 in tupla)
+
+"""
+
+   _____ ______ _______ 
+  / ____|  ____|__   __|
+ | (___ | |__     | |   
+  \___ \|  __|    | |   
+  ____) | |____   | |   
+ |_____/|______|  |_|   
+                        
+"""
+frutas_invierno = {"Naranja","Limón","Pomelo","Mandarina","Manzana","Plátano","Uva"}
+frutas_verano = {"Sandía","Melón","Higo","Melocotón","Albaricoque","Plátano","Uva"}
+
+#Se puede transforma de set a list y a tupla y viceversa.
+#Admite operadores in, not in
+#Admite las funciones max y min
+
+#Métodos exclusivos propios de los conjuntos
+
+#isdisjoint()--> Devuelve true/false
+print(frutas_invierno.isdisjoint(frutas_verano))#Comprueba si son conjuntos disjuntos
+
+palabras_prohibidas = {"Jamón","Melón","Pingüino"}
+conjunto_palabras = set("A mi Pingüino no le gusta el Melón".split())
+if (not palabras_prohibidas.isdisjoint(conjunto_palabras)):
+    print("No puedes decir eso")
+else:
+    print("OK")
+conjunto_palabras = set("A mi perro le gustan las albóndigas".split())
+if (not palabras_prohibidas.isdisjoint(conjunto_palabras)):
+    print("No puedes decir eso")
+else:
+    print("OK")
+
+#intersection()-->Devuelve los elementos comunes. No importa el orden
+frutas_anuales = frutas_invierno.intersection(frutas_verano)
+print(frutas_anuales)
+
+#difference()-->Elementos que están en un conjunto en el otro. Importa el orden.
+dif1 = frutas_invierno.difference(frutas_verano)
+dif2 = frutas_verano.difference(frutas_invierno)
+print(dif1)
+print(dif2)
+
+#Ejercicio: construir una interfaz en lenguaje natural dadas las siguientes opciones
+def mostrarHora():
+    print("Son las 10 de la mañana")
+def mostrarTemperatura():
+    print("Hace 10 grados centígrados")
+def mostrarHoraPartido():
+    print("España juega a las 11")
+
+opcion1 = ({"dime","dame","hora","la"},mostrarHora)
+opcion2 = ({"dime","que","temperatura","hace"},mostrarTemperatura)
+opcion3 = ({"hora","juega","partido","españa"},mostrarHoraPartido)
+
+opciones = [opcion1, opcion2, opcion3]
+
+orden = input("Soy soy Halesa, dime qué deseas saber:")
+set_orden = set(orden.split())
+opcion_mas_proxima = ({},)
+for current_opcion in opciones:
+    if len(set_orden.intersection(current_opcion[0]))>len(set_orden.intersection(opcion_mas_proxima[0])):
+        opcion_mas_proxima=current_opcion
+
+opcion_mas_proxima[1]()
+
+
+
+
+
+
+
