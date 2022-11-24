@@ -259,7 +259,6 @@ print(max(tupla))
 print(3 in tupla)
 
 """
-
    _____ ______ _______ 
   / ____|  ____|__   __|
  | (___ | |__     | |   
@@ -303,6 +302,7 @@ print(dif1)
 print(dif2)
 
 #Ejercicio: construir una interfaz en lenguaje natural dadas las siguientes opciones
+"""
 def mostrarHora():
     print("Son las 10 de la mañana")
 def mostrarTemperatura():
@@ -324,10 +324,90 @@ for current_opcion in opciones:
         opcion_mas_proxima=current_opcion
 
 opcion_mas_proxima[1]()
+"""
 
+"""
+  _____ _____ _____ _____ _____ ____  _   _          _____  _____ ____  
+ |  __ \_   _/ ____/ ____|_   _/ __ \| \ | |   /\   |  __ \|_   _/ __ \ 
+ | |  | || || |   | |      | || |  | |  \| |  /  \  | |__) | | || |  | |
+ | |  | || || |   | |      | || |  | | . ` | / /\ \ |  _  /  | || |  | |
+ | |__| || || |___| |____ _| || |__| | |\  |/ ____ \| | \ \ _| || |__| |
+ |_____/_____\_____\_____|_____\____/|_| \_/_/    \_\_|  \_\_____\____/ 
 
+"""
+#key - value
+#Construcción
+diccionario = {}
+diccionario = dict()
+diccionario = {4:"Pan",2:"Azúcar",'arroz':"Arroz"}
+diccionario = dict([(4,"Pan"),(2,"Azúcar"),(3,"Arroz")])
 
+diccionario = {4:"Pan",2:"Azúcar",'arroz':"Arroz"}
 
+#Acceso de lectura y de modificación
+print(diccionario[4])
+print(diccionario["arroz"])
+#print(diccionario['patata'])#Error al no existir la clave
+print("Patata:", diccionario.get('patata'))#Si no existe, devuelve
+
+diccionario[4]="Bread" #Modificación
+
+#Agregación de nuevos elementos
+diccionario[5]="Lechuga"
+print(diccionario)
+#El método setDefault agrega el elemento si la clave no existe previamente 
+diccionario.setdefault(6,"Refresco")
+print(diccionario)
+diccionario[6]="Gaseosa"
+print(diccionario)
+diccionario.setdefault(6,"Zumo de naranja")#No agrega elemento por que 6 existe
+print(diccionario)
+
+#Eliminar elementos del diccionario
+del diccionario[6]
+print(diccionario)
+
+#Método pop, devuelve y elimina del diccionario un item
+item = diccionario.pop("arroz")
+print("Item devuelto por el pop:", item)
+print(diccionario)
+
+#Método popitem devuelve el último elemento del diccionario y lo elimina
+item = diccionario.popitem()
+
+#Las funciones list, tuple y set obtienen dichas estructuras formadas por las claves
+list(diccionario)
+list(diccionario.values())#Lista con los valores
+list(diccionario.items())#Lista de tuplas con las claves y valores
+set(diccionario)
+tuple(diccionario)
+
+#Admite los operadores in y not in
+print(diccionario)
+print("arroz" in diccionario)
+print(4 in diccionario)
+
+#Métodos de acceso a las partes: keys(), values(), items()
+diccionario = {4:"Pan",2:"Azúcar",'arroz':"Arroz"}
+
+diccionario.keys()
+diccionario.values()
+diccionario.items()
+
+print("***CLAVES***")
+for k in diccionario.keys():
+    print(k)
+print("***VALUES***")
+for v in diccionario.values():
+    print(v)
+print("***ITEMS***")
+for k,v in diccionario.items():
+    print(k,v,sep="---")
+
+#Método clear --> Borra el diccionario
+diccionario.clear()
+print("Diccionario vacío:",diccionario)
+diccionario = {4:"Pan",2:"Azúcar",'arroz':"Arroz"}
 
 
 
