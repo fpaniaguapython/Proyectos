@@ -1,13 +1,4 @@
-def saludar(nombre):
-    print("Buenos días, soy", nombre)
-
-def trabajar(nombre):
-    print("Soy",nombre," y estoy trabajando...")
-
-def despedir(nombre):
-    print("Hasta mañana, soy", nombre)
-
-pila_tareas = (saludar, trabajar, despedir)
-
-for tarea in pila_tareas:
-    tarea("Claudia")
+identificadores = [1,3,8,9]
+nombres = ("pan","agua","vino","leche")
+for i, n in zip(identificadores, nombres):
+    print(i,n,sep="=")
