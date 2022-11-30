@@ -36,4 +36,9 @@ multiplicar(10,5)
 multiplicar(10,None)
 multiplicar(10)
 
+#Invocación a funciones con parámetros 'nominativos'
+def restar_numeros(n1, n2):
+    return n1-n2
 
+print(restar_numeros(n1=5,n2=3))
+print(restar_numeros(n2=8,n1=1))
