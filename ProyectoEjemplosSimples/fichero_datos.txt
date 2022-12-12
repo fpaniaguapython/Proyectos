@@ -1,0 +1,11 @@
+Python
+Java
+C
+Fortran
+Pascal
+C#
+Ruby
+Kotlin
+TypeScript
+JavaScript
+PHP
