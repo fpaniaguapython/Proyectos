@@ -1,5 +1,13 @@
 import json
 
+#Funciones de json:
+#load -- Obtener una representación en memoria de un JSON de una cadena de un fichero
+#loads -- Obtener una representación en memoria de un JSON de una cadena
+#dump -- Transforma un objeto Python en un objeto JSON y lo almacena en fichero
+#dumps -- Transforma un objeto Python en un objeto JSON y lo almacena en memoria como cadena
+
+json.load
+
 fichero = open("fichero_entrada.json", "r")
 objeto_json = json.load(fichero)#Lectura del fichero y conversión a Dictionary
 #Acceso a un elemento
@@ -29,6 +37,8 @@ diccionario = {
 "La tentación de San Antonio": ["Salvador Dalí",1946],
 "Retrato de Encarna y su hija":["Antonio Ortiz Echagüe",1926]
 }
-mi_json = json.dumps(diccionario, ensure_ascii=False).encode("utf8")
+
+objeto_json = json.dumps(diccionario, ensure_ascii=False)
+print("Objeto JSON:", objeto_json)
 with open("fichero_salida.json","w",encoding="UTF-8") as fichero_salida:
-    fichero_salida.write(json.dumps(diccionario))
+    fichero_salida.write(objeto_json)
